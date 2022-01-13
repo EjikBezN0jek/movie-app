@@ -1,0 +1,17 @@
+@import "variables";
+
+.header {
+  padding: 20px;
+  background: $secondary-color;
+  width: 100%;
+}
+
+.header__search {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search__input {
+  color: $additional-color;
+}

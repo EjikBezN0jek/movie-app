@@ -10,12 +10,17 @@ function copyTask() {
         .pipe(gulp.dest("build"))
 }
 
+function copyImgTask() {
+    return gulp.src("src/img/**/*.{svg,png,jpg}")
+        .pipe(gulp.dest("build/img"))
+}
+
 function cleanTask() {
     return del("build")
 }
 
 function styleTask() {
-    return gulp.src('src/styles/*.scss')
+    return gulp.src('src/styles/main.scss')
         .pipe(plumber())
         .pipe(sass().on('error', sass.logError))
         .pipe(concat('style.css'))
@@ -28,6 +33,7 @@ function serveTask() {
     gulp.watch('src/styles/*.scss', styleTask);
     gulp.watch('src/script.js', copyTask).on('change', browserSync.reload);
     gulp.watch('src/index.html', copyTask).on('change', browserSync.reload);
+    gulp.watch('src/img/', copyImgTask).on('change', browserSync.reload);
 }
 
 exports.style = styleTask;
@@ -37,6 +43,7 @@ exports.serve = serveTask;
 exports.build = gulp.series(
     cleanTask,
     copyTask,
+    copyImgTask,
     styleTask
     // gulp.parallel(pugTask, styleTask, jsTask, imageTask)
 );
