@@ -1,0 +1,13 @@
+@import "variables";
+@import "mixins";
+
+.catalog {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 30px;
+  gap: 20px;
+
+  @include xxl {
+    gap: 40px;
+  }
+}

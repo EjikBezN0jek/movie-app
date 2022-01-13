@@ -1,0 +1,112 @@
+@import "variables";
+@import "mixins";
+
+.movie {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  background: $secondary-color;
+
+  &:hover .overview {
+    transform: translateY(0);
+  }
+
+  @include s {
+    width: calc(50% - 10px);
+  }
+
+  @include l {
+    width: calc(33.3% - 14px);
+  }
+
+  @include xl {
+    width: calc(25% - 15px);
+  }
+
+  @include xxl {
+    width: calc(20% - 32px);
+  }
+}
+
+.movie__img {
+  width: 100%;
+  display: block;
+}
+
+.movie__info {
+  color: $additional-color;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 18px;
+
+  @include m {
+    font-size: 20px;
+  }
+
+  @include l {
+    font-size: 16px;
+  }
+
+
+  @include xxl {
+    font-size: 14px;
+  }
+}
+
+.movie__rating {
+  padding: 10px;
+  background: $additional-color;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 50px;
+  text-align: center;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.green {
+  color: green;
+}
+.orange {
+  color: orange;
+}
+
+.red {
+  color: red;
+}
+
+.overview {
+  background: $additional-color;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  right: 0;
+  max-height: 100%;
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in;
+  text-align: center;
+  font-size: 14px;
+
+  @include m {
+    font-size: 20px;
+  }
+
+  @include l {
+    font-size: 16px;
+  }
+
+
+  @include xxl {
+    font-size: 14px;
+  }
+}
+
+.overview {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

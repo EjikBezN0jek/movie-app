@@ -1,0 +1,42 @@
+@import "variables";
+
+.search {
+  position: relative;
+  display: block;
+
+  &:before {
+    content: "\f3ee";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    bottom: 50%;
+    left: 15px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    font-family: "Font Awesome 5 Brands";
+    color: $additional-color;
+  }
+}
+
+.search__input {
+  width: 100%;
+  border-radius: 50px;
+  background: transparent;
+  border: 2px solid $primary-color;
+  padding: 8px 40px;
+  font-family: inherit;
+  font-size: 14px;
+
+  &::placeholder {
+    color: $additional-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
